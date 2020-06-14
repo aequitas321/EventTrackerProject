@@ -14,16 +14,22 @@ public class Race {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String track;
+	private String name;
+	private int length;
 
 	public Race() {
 
 	}
 
-	public Race(int id, String track) {
+
+	public Race(int id, String track, String name, int length) {
 		super();
 		this.id = id;
 		this.track = track;
+		this.name = name;
+		this.length = length;
 	}
+
 
 	public int getId() {
 		return id;
@@ -41,9 +47,29 @@ public class Race {
 		this.track = track;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public int getLength() {
+		return length;
+	}
+
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Track [id=" + id + ", track=" + track + "]";
+		return "Race [id=" + id + ", track=" + track + ", name=" + name + ", length=" + length + "]";
 	}
 
 	@Override
