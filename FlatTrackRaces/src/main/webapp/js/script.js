@@ -9,6 +9,7 @@ function init() {
   document.createRace.raceCreate.addEventListener("click", function (e) {
     e.preventDefault();
     createRace();
+    document.createRace.reset();
   });
 }
 
@@ -182,7 +183,9 @@ function getSingleRace(singleRace) {
   submitButton.value = "Update Race";
   submitButton.addEventListener("click", function (e) {
     e.preventDefault();
+    let div = document.getElementById('div2');
     updateRace(singleRace.id);
+    div.textContent = '';
   });
   form.appendChild(submitButton);
 
@@ -191,8 +194,10 @@ function getSingleRace(singleRace) {
   deleteButton.type = 'submit';
   deleteButton.value = 'Delete Race';
   deleteButton.addEventListener('click', function(e){
-	e.preventDefault();
-	deleteRace(singleRace.id);
+  e.preventDefault();
+  let div = document.getElementById('div2');
+  deleteRace(singleRace.id);
+  div.textContent = '';
   });
   form.appendChild(deleteButton);
 }
