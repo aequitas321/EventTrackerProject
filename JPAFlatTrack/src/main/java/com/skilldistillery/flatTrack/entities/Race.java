@@ -15,7 +15,7 @@ public class Race {
 	private int id;
 	private String track;
 	private String name;
-	private int length;
+	private double length;
 
 	public Race() {
 
@@ -57,12 +57,12 @@ public class Race {
 	}
 
 
-	public int getLength() {
+	public double getLength() {
 		return length;
 	}
 
 
-	public void setLength(int length) {
+	public void setLength(double length) {
 		this.length = length;
 	}
 

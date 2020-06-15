@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `flat_track_races` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `track` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NULL,
-  `length` VARCHAR(45) NULL,
+  `length` DECIMAL(5,2) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -44,7 +44,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flattrackdb`;
-INSERT INTO `flat_track_races` (`id`, `track`, `name`, `length`) VALUES (1, 'Red Mile', 'Red Mile', '1');
+INSERT INTO `flat_track_races` (`id`, `track`, `name`, `length`) VALUES (1, 'Red Mile', 'Red Mile', 1);
 
 COMMIT;
 

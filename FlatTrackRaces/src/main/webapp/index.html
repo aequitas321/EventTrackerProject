@@ -3,11 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Races</title>
-<script type="text/javascript" src="js/script.js">
-
-</script>
+<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-<h1>index</h1>
+
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+
+    <form class="form-horizontal" role="form" name="createRace">
+        <h2>Races</h2>
+        <div class="form-group ">
+            <div class="col-md-6 mx-auto">
+                <input type="text" id="track" placeholder="Track Name" class="form-control" autofocus name="track">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6 mx-auto">
+                <input type="text" id="name" placeholder="Race Name" class="form-control" autofocus name="name">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6 mx-auto">
+                <input type="number" step="0.25"" id="length" placeholder="Track Length" class="form-control" name= "lengthInMiles">
+            </div>
+        </div>
+        <button type="submit" name="raceCreate" class="btn btn-primary btn-block">Create Race</button>
+    </form> 
 </body>
 </html>
