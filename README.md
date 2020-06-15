@@ -10,7 +10,11 @@
 
 | Returns | Verb | URI | Description |
 |---------|------|-----|-------------|
-| List&lt;Race&gt; | Get | api/Race/ | returns list of races|
+| List&lt;Race&gt; | Get | api/Race/ | Returns list of races |
+| Race | GET | api/race/${id} | Returns race by id |
+| Race | POST | api/race/${id} | Updates race |
+| Race | PUT | api/race | Creates race |
+| Void | DELETE | api/race/${id} | Deletes race |
 
 
 ## Technologies Used
