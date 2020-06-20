@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FlatTrackRacesApplication<FlatTrackRaces>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.skilldistillery.flatTrack.FlatTrackRacesApplication",
+            "projectName": "FlatTrackRaces",
+            "args": ""
+        }
+    ]
+}
