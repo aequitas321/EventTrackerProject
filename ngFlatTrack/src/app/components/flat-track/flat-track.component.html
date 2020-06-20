@@ -1,16 +1,60 @@
-<table>
+
+<!--Table on init-->
+<div class="form-group" *ngIf="!selected && !create">
+<table class="table table-striped table-hover">
   <thead>
-  <tr>
-    <td>Track</td>
-    <td>Name of Race</td>
-    <td>Length</td>
+  <tr class="thead-dark">
+    <th>Track</th>
+    <th>Name of Race</th>
+    <th>Length</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let race of races">
-    <td>{{race.track}}</td>
+    <td (click)="displayRace(race)">{{race.track}}</td>
     <td>{{race.name}}</td>
     <td>{{race.length}}</td>
+    <td><button class="btn btn-danger" (click)="deleteRace(race.id)">X</button></td>
   </tr>
   </tbody>
 </table>
+<button class="btn btn-dark" (click)="create = true;">Add a Race</button>
+</div>
+
+<!--Display individule race-->
+<form *ngIf="selected">
+  <div class="form-group">
+    <label>Track: </label><br>
+    <input type="text" name="track" [(ngModel)]="selected.track"><br>
+  </div>
+  <div class="form-group">
+    <label>Name of Race: </label><br>
+    <input type="text" name="name" [(ngModel)]="selected.name"><br>
+  </div>
+  <div class="form-group">
+    <label>Length: </label> <br>
+    <input type="number" step="0.25" name="length" [(ngModel)]="selected.length"><br>
+  </div>
+  <button class="btn btn-dark" (click)="updateRace(selected)">Update</button>
+  <button class="btn btn-dark" (click)="selected = null;">Back</button>
+</form>
+
+
+<!--Create New Race Form-->
+<form *ngIf="create">
+  <div class="form-group">
+    <label>Track</label>
+    <input type="text" name="track" [(ngModel)]="newRace.track">
+  </div>
+  <div class="form-group">
+  <label>Name of Race</label>
+  <input type="text" name="name" [(ngModel)]="newRace.name">
+  </div>
+  <div class="form-group">
+    <label>Length</label>
+    <input type="number" step="0.25" name="length" [(ngModel)]="newRace.length">
+  </div>
+  <button class="btn btn-dark" (click)="createRace(newRace)">Add Race</button>
+  <button class="btn btn-dark" (click)="create = false;">Back</button>
+</form>

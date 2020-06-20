@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RaceService} from "../../services/race.service";
+import {Race} from "../../models/race";
+import {log} from "util";
 
 @Component({
   selector: 'app-flat-track',
@@ -9,6 +11,9 @@ import {RaceService} from "../../services/race.service";
 export class FlatTrackComponent implements OnInit {
 
   races = [];
+  selected = null;
+  create: boolean;
+  newRace = new Race();
 
   constructor(private raceService: RaceService) {
   }
@@ -22,6 +27,33 @@ export class FlatTrackComponent implements OnInit {
       data => this.races = data,
 
       err => console.log('error' + err)
+    );
+  }
+
+  displayRace(race: Race) {
+    this.selected = race;
+  }
+
+  updateRace(race: Race){
+    this.raceService.updateRace(race).subscribe(
+      data => {this.selected = null;
+        this.loadRaces();
+      },
+      err => console.log(err)
+    );
+  }
+
+  deleteRace(id: number){
+    this.raceService.deleteRace(id).subscribe(
+      data => this.loadRaces(),
+      err => console.log(err)
+    );
+  }
+
+  createRace(race: Race){
+    this.raceService.createRace(race).subscribe(
+      data => {this.create = false; this.loadRaces()},
+      err => console.log(err)
     );
   }
 
