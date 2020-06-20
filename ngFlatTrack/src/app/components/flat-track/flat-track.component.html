@@ -1,0 +1,16 @@
+<table>
+  <thead>
+  <tr>
+    <td>Track</td>
+    <td>Name of Race</td>
+    <td>Length</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let race of races">
+    <td>{{race.track}}</td>
+    <td>{{race.name}}</td>
+    <td>{{race.length}}</td>
+  </tr>
+  </tbody>
+</table>
