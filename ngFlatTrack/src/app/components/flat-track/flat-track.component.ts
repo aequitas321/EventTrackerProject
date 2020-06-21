@@ -10,7 +10,15 @@ import {log} from "util";
 })
 export class FlatTrackComponent implements OnInit {
 
+  trackLength = 'All';
   races = [];
+  raceLengths = [
+    'All',
+    '.25',
+    '.50',
+    '.75',
+    '1'
+  ];
   selected = null;
   create: boolean;
   newRace = new Race();
@@ -52,7 +60,7 @@ export class FlatTrackComponent implements OnInit {
 
   createRace(race: Race){
     this.raceService.createRace(race).subscribe(
-      data => {this.create = false; this.loadRaces()},
+      data => {this.create = false; this.loadRaces(); this.newRace = new Race()},
       err => console.log(err)
     );
   }
